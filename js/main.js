@@ -84,7 +84,18 @@
             }
 
             // create and play explosion sound
-            
+            let audio = document.createElement('audio');
+            audio.src = "audio/explode.mp3";
+        
+            // add an event handler for when the audio track is finished. 
+            // This removes it from the DOM when it's done playing
+            audio.addEventListener('ended', function() {
+              document.body.removeChild(audio);
+            });
+        
+            document.body.appendChild(audio);
+        
+            audio.play();
           }
         });
 
@@ -137,7 +148,18 @@
     bullets.push(newBullet);
 
     // create and play cheesy laser sound
-    
+    let audio = document.createElement('audio');
+    audio.src = "audio/laser.mp3";
+
+    // add an event handler for when the audio track is finished. 
+    // This removes it from the DOM when it's done playing
+    audio.addEventListener('ended', function() {
+      document.body.removeChild(audio);
+    });
+
+    document.body.appendChild(audio);
+
+    audio.play();
   }
 
   function movePlayer(e) {
